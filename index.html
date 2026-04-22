@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בלתי מנוצח | הקהילה הישראלית</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&display=swap');
+
+        :root {
+            --invincible-yellow: #ffde00;
+            --invincible-blue: #0056b3;
+            --invincible-red: #d20000;
+            --dark-bg: #121212;
+            --game-accent: #00f2ff;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, var(--invincible-blue) 0%, var(--dark-bg) 100%);
+        }
+
+        .comic-border {
+            border: 3px solid black;
+            box-shadow: 8px 8px 0px black;
+        }
+
+        .game-card {
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid var(--invincible-yellow);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover {
+            border-color: white;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 222, 0, 0.3);
+        }
+
+        .stat-number {
+            font-family: 'Arial Black', sans-serif;
+            -webkit-text-stroke: 1px black;
+            text-shadow: 3px 3px 0px var(--invincible-red);
+        }
+
+        .nav-link:hover {
+            color: var(--invincible-yellow);
+        }
+
+        .vs-circle {
+            background: var(--invincible-red);
+            color: white;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            border: 4px solid black;
+            border-radius: 50%;
+            font-style: italic;
+        }
+
+        .vote-bar {
+            height: 40px;
+            background: #333;
+            border: 2px solid black;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .vote-side-a { background: var(--invincible-blue); transition: width 0.5s ease; }
+        .vote-side-b { background: var(--invincible-yellow); transition: width 0.5s ease; }
+
+        /* סגנון להצגת דמות מלאה */
+        .full-character-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* מבטיח שהתמונה תוצג כולה בלי להיחתך */
+            object-position: center;
+        }
+
+        .headshot-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            overflow: hidden;
+            background: #222;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .headshot-container:hover {
+            transform: translateY(-5px) scale(1.1);
+            border-color: var(--invincible-yellow);
+        }
+
+        .tiktok-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: black;
+        }
+
+        @keyframes pulse-border {
+            0% { border-color: var(--invincible-yellow); }
+            50% { border-color: var(--invincible-red); }
+            100% { border-color: var(--invincible-yellow); }
+        }
+        .pulse-game {
+            animation: pulse-border 2s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b-2 border-yellow-400">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-black text-yellow-400 tracking-tighter">
+                INVINCIBLE <span class="text-white">IL</span>
+            </div>
+            <div class="hidden md:flex space-x-reverse space-x-8 font-bold text-lg">
+                <a href="#home" class="nav-link">בית</a>
+                <a href="#game" class="nav-link text-yellow-400">המשחק</a>
+                <a href="#characters" class="nav-link">דמויות</a>
+                <a href="#vs" class="nav-link">ראש בראש</a>
+                <a href="#tiktok" class="nav-link">טיקטוק</a>
+            </div>
+            <button class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-gradient pt-40 pb-24 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-6xl md:text-9xl font-black mb-6 uppercase tracking-tighter italic text-white">
+                <span class="text-yellow-400 text-shadow">בלתי</span> מנוצח
+            </h1>
+            <p class="text-xl md:text-3xl mb-10 font-light max-w-2xl mx-auto text-blue-100">
+                הבית של המעריצים בישראל. ברוכים הבאים לעידן של עונה 5 ומשחק ה-VS החדש!
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#game" class="bg-yellow-400 text-black px-10 py-4 rounded-none font-black comic-border hover:bg-white transition-colors text-xl">
+                    לסיכום הבטא של המשחק
+                </a>
+                <a href="#vs" class="bg-red-600 text-white px-10 py-4 rounded-none font-black comic-border hover:bg-red-700 transition-colors text-xl">
+                    הצבע ב-VS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- אזור המשחק עם נתוני הבטא -->
+    <section id="game" class="py-24 bg-zinc-900 border-y-4 border-yellow-400">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
+                <div class="text-right md:w-1/2">
+                    <h2 class="text-6xl font-black italic uppercase text-yellow-400 mb-4 tracking-tighter">INVINCIBLE <span class="text-red-600">VS</span></h2>
+                    <h3 class="text-3xl font-bold text-white mb-6 underline decoration-red-600 decoration-4 underline-offset-8">סיכום הבטא הפתוחה</h3>
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        הבטא נסגרה עם נתונים מטורפים! מיליוני קרבות, אינספור איברים אבודים ודמות אחת ששלטה בכולן. 
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="p-6 bg-yellow-400 comic-border rotate-2">
+                         <span class="text-black font-black text-3xl uppercase italic">זמין בקרוב למחשב!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="game-card p-8 text-center pulse-game">
+                    <div class="text-red-600 text-5xl mb-4"><i class="fas fa-gamepad"></i></div>
+                    <h4 class="text-gray-400 font-bold mb-2 text-lg">משחקים ששוחקו</h4>
+                    <div class="stat-number text-6xl font-black text-white tracking-tighter">2M+</div>
+                </div>
+
+                <div class="game-card p-8 text-center border-white">
+                    <div class="text-yellow-400 text-5xl mb-4"><i class="fas fa-skull-crossbones"></i></div>
+                    <h4 class="text-gray-400 font-bold mb-2 text-lg">איבוד איברים</h4>
+                    <div class="stat-number text-5xl font-black text-white tracking-tighter">12,429,324</div>
+                </div>
+
+                <div class="game-card p-8 text-center">
+                    <div class="text-blue-500 text-5xl mb-4"><i class="fas fa-trophy"></i></div>
+                    <h4 class="text-gray-400 font-bold mb-2 text-lg">הדמות הנפוצה ביותר</h4>
+                    <div class="stat-number text-4xl font-black text-white tracking-widest uppercase italic">Invincible</div>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-black p-8 comic-border border-red-600 relative overflow-hidden text-center">
+                <h4 class="text-3xl font-black mb-10 italic text-white">השלישייה הנפוצה ביותר</h4>
+                <div class="flex flex-wrap justify-center gap-12">
+                    <div class="text-center">
+                        <div class="headshot-container border-yellow-400">
+                            <img src="https://i.postimg.cc/9F4FL26r/Invincible-29.webp" class="full-character-img" alt="מארק">
+                        </div>
+                        <p class="font-black mt-4 text-yellow-400 italic">Invincible</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="headshot-container border-blue-600">
+                            <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" class="full-character-img" alt="אומני מן">
+                        </div>
+                        <p class="font-black mt-4 text-blue-400 italic">Omni-Man</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="headshot-container border-green-500">
+                            <img src="https://i.postimg.cc/28MkLtKf/Buff-Allen.webp" class="full-character-img" alt="אלן">
+                        </div>
+                        <p class="font-black mt-4 text-green-400 italic">Allen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- אזור ראש בראש - תמונות מלאות -->
+    <section id="vs" class="py-24 bg-white text-black relative">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black italic uppercase tracking-tighter">INVINCIBLE <span class="text-red-600">VS</span></h2>
+                <p class="text-xl font-bold text-gray-600">הצבעה שבועית: מי המנצח בקרב?</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 items-stretch justify-center mb-12">
+                <!-- אומני מן -->
+                <div class="w-full md:w-1/2 flex flex-col">
+                    <div class="comic-border bg-blue-700 p-4 h-[500px] flex items-center justify-center overflow-hidden bg-zinc-900">
+                        <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" alt="אומני-מן" class="full-character-img transition-all hover:scale-110">
+                    </div>
+                    <button onclick="vote('a')" class="w-full mt-6 bg-blue-700 text-white font-black py-4 comic-border hover:bg-blue-800 text-xl italic uppercase">בחר באומני-מן</button>
+                </div>
+
+                <div class="flex items-center justify-center">
+                    <div class="vs-circle">VS</div>
+                </div>
+
+                <!-- באטל ביסט -->
+                <div class="w-full md:w-1/2 flex flex-col">
+                    <div class="comic-border bg-gray-900 p-4 h-[500px] flex items-center justify-center overflow-hidden bg-zinc-900">
+                        <img src="https://i.postimg.cc/L6q6xScs/Battle-Beast.webp" alt="באטל ביסט" class="full-character-img transition-all hover:scale-110">
+                    </div>
+                    <button onclick="vote('b')" class="w-full mt-6 bg-gray-900 text-white font-black py-4 comic-border hover:bg-black text-xl italic uppercase">בחר בבאטל ביסט</button>
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto text-center mt-12">
+                <h3 class="text-2xl font-black mb-4 italic">תוצאות ההצבעה:</h3>
+                <div class="vote-bar comic-border">
+                    <div id="bar-a" class="vote-side-a" style="width: 52%"></div>
+                    <div id="bar-b" class="vote-side-b" style="width: 48%"></div>
+                </div>
+                <div class="flex justify-between mt-2 font-black text-lg italic">
+                    <span id="percent-a">52%</span>
+                    <span id="percent-b">48%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- דמויות מפתח - תמונות מלאות בקלפים -->
+    <section id="characters" class="py-24 bg-gray-200 text-black">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-5xl font-black mb-16 underline decoration-red-600 decoration-8 underline-offset-8 italic inline-block text-shadow">דמויות מפתח</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-right">
+                <div class="bg-yellow-400 comic-border flex flex-col h-full transform hover:-rotate-1 transition-transform">
+                    <div class="bg-black h-80 p-4 flex items-center justify-center overflow-hidden">
+                        <img src="https://i.postimg.cc/9F4FL26r/Invincible-29.webp" class="full-character-img" alt="מארק">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-3xl font-black mb-3 italic">מארק גרייסון</h3>
+                        <p class="font-bold mb-6 text-lg">הגיבור הראשי. לומד מה זה באמת אומר להיות "בלתי מנוצח" ביקום אכזרי.</p>
+                        <span class="bg-blue-700 text-white px-4 py-2 text-md font-black uppercase">רמת כוח: 8/10</span>
+                    </div>
+                </div>
+
+                <div class="bg-blue-700 comic-border text-white flex flex-col h-full transform hover:rotate-1 transition-transform">
+                    <div class="bg-black h-80 p-4 flex items-center justify-center overflow-hidden">
+                        <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" class="full-character-img" alt="אומני מן">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-3xl font-black mb-3 italic text-yellow-400">אומני-מן</h3>
+                        <p class="font-bold mb-6 text-lg">הווילטרומיט החזק ביותר על כדור הארץ. מגן או כובש?</p>
+                        <span class="bg-red-600 text-white px-4 py-2 text-md font-black uppercase">רמת כוח: 10/10</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 comic-border text-white border-yellow-400 flex flex-col h-full transform hover:-rotate-1 transition-transform">
+                    <div class="bg-black h-80 p-4 flex items-center justify-center overflow-hidden">
+                        <img src="https://i.postimg.cc/L6q6xScs/Battle-Beast.webp" class="full-character-img" alt="באטל ביסט">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-3xl font-black mb-3 italic text-red-600">באטל ביסט</h3>
+                        <p class="font-bold mb-6 text-lg text-gray-300">מחפש יריב ראוי למות בקרב מולו. היחיד שגרם לכולם לפחד.</p>
+                        <span class="bg-yellow-400 text-black px-4 py-2 text-md font-black uppercase">רמת כוח: ??/10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- עונה 3 - כתבה מעוצבת לפי התמונה -->
+    <section class="py-12 bg-red-900 border-y-4 border-yellow-400">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-right">
+                <h2 class="text-3xl font-black text-yellow-400 mb-2 italic">עונה 3: מה אנחנו באמת יודעים?</h2>
+                <p class="text-white text-lg font-bold">כל הדיווחים מההפקה, מי הדמויות החדשות שיצטרפו והאם נראה את קונקווסט?</p>
+            </div>
+            <a href="#" class="bg-white text-black px-8 py-3 font-black comic-border hover:bg-yellow-400 transition-all">לכתבה המלאה</a>
+        </div>
+    </section>
+
+    <!-- טיקטוק -->
+    <section id="tiktok" class="py-24 px-4 bg-dark-bg text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-black mb-6 text-yellow-400 italic">מה קורה בטיקטוק?</h2>
+            <div class="bg-zinc-800 p-6 md:p-10 border-2 border-yellow-400 flex flex-col items-center shadow-2xl">
+                <h3 class="text-3xl font-bold mb-8 italic uppercase text-yellow-400">"תגדיר מנצח"</h3>
+                <div class="tiktok-wrapper shadow-2xl comic-border">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@dailyeditz2026/video/7631167837012364551" data-video-id="7631167837012364551" style="max-width: 605px;min-width: 325px;" > 
+                        <section> 
+                            <a target="_blank" title="@dailyeditz2026" href="https://www.tiktok.com/@dailyeditz2026?refer=embed">@dailyeditz2026</a> 
+                            תגדיר מנצח #invincible #invinciblevs #fyp #robertkirkman #game 
+                        </section> 
+                    </blockquote> 
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- פוטר -->
+    <footer class="bg-black py-16 border-t-8 border-yellow-400 text-center">
+        <div class="flex justify-center space-x-reverse space-x-10 mb-8">
+            <a href="https://www.tiktok.com/@dailyeditz2026" target="_blank" class="text-4xl hover:text-yellow-400"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/channel/UCZsfDhrs5yMeY_NUEFqJDQA" target="_blank" class="text-4xl hover:text-red-600"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="text-yellow-400 font-black text-2xl uppercase mb-2">Invincible Israel</p>
+        <p class="text-gray-500 font-bold italic">כל הזכויות שמורות למעריצי בלתי מנוצח בישראל &copy; 2026</p>
+    </footer>
+
+    <script>
+        let votesA = 21452;
+        let votesB = 19380;
+
+        function vote(side) {
+            if (side === 'a') votesA += 100;
+            else votesB += 100;
+            updateUI();
+        }
+
+        function updateUI() {
+            const total = votesA + votesB;
+            const pA = Math.round((votesA / total) * 100);
+            const pB = 100 - pA;
+            document.getElementById('bar-a').style.width = pA + '%';
+            document.getElementById('bar-b').style.width = pB + '%';
+            document.getElementById('percent-a').innerText = pA + '%';
+            document.getElementById('percent-b').innerText = pB + '%';
+        }
+        updateUI();
+    </script>
+
+</body>
+</html>
