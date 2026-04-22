@@ -82,7 +82,6 @@
         .vote-side-a { background: var(--invincible-blue); transition: width 0.5s ease; }
         .vote-side-b { background: var(--invincible-yellow); transition: width 0.5s ease; }
 
-        /* סגנון להצגת דמות מלאה */
         .full-character-img {
             width: 100%;
             height: 100%;
@@ -134,8 +133,8 @@
             </div>
             <div class="hidden md:flex space-x-reverse space-x-8 font-bold text-lg">
                 <a href="#home" class="nav-link">בית</a>
-                <!-- הקישור המעודכן לכתובת המתוקנת -->
-                <a href="https://dcxgfzsregefageyfvdgterw.github.io/page-2/" class="nav-link text-yellow-400 border-b-2 border-transparent hover:border-yellow-400">פרקים</a>
+                <!-- הוספת target="_blank" לשיפור תאימות בין דפדפנים במעבר לאתר חיצוני -->
+                <a href="https://dcxgfzsregefageyfvdgterw.github.io/page-2/" target="_blank" rel="noopener noreferrer" class="nav-link text-yellow-400 border-b-2 border-transparent hover:border-yellow-400">פרקים</a>
                 <a href="#game" class="nav-link">המשחק</a>
                 <a href="#characters" class="nav-link">דמויות</a>
                 <a href="#vs" class="nav-link">ראש בראש</a>
@@ -209,19 +208,19 @@
                 <div class="flex flex-wrap justify-center gap-12">
                     <div class="text-center">
                         <div class="headshot-container border-yellow-400">
-                            <img src="https://i.postimg.cc/9F4FL26r/Invincible-29.webp" class="full-character-img" alt="מארק">
+                            <img src="https://i.postimg.cc/9F4FL26r/Invincible-29.webp" class="full-character-img" alt="[תמונה של מארק]">
                         </div>
                         <p class="font-black mt-4 text-yellow-400 italic">Invincible</p>
                     </div>
                     <div class="text-center">
                         <div class="headshot-container border-blue-600">
-                            <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" class="full-character-img" alt="אומני מן">
+                            <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" class="full-character-img" alt="[תמונה של אומני מן]">
                         </div>
                         <p class="font-black mt-4 text-blue-400 italic">Omni-Man</p>
                     </div>
                     <div class="text-center">
                         <div class="headshot-container border-green-500">
-                            <img src="https://i.postimg.cc/28MkLtKf/Buff-Allen.webp" class="full-character-img" alt="אלן">
+                            <img src="https://i.postimg.cc/28MkLtKf/Buff-Allen.webp" class="full-character-img" alt="[תמונה של אלן]">
                         </div>
                         <p class="font-black mt-4 text-green-400 italic">Allen</p>
                     </div>
@@ -239,10 +238,9 @@
             </div>
 
             <div class="flex flex-col md:flex-row gap-8 items-stretch justify-center mb-12">
-                <!-- אומני מן -->
                 <div class="w-full md:w-1/2 flex flex-col">
                     <div class="comic-border bg-zinc-900 p-4 h-[500px] flex items-center justify-center overflow-hidden">
-                        <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" alt="אומני-מן" class="full-character-img transition-all hover:scale-110">
+                        <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" alt="[תמונה של אומני-מן]" class="full-character-img transition-all hover:scale-110">
                     </div>
                     <button onclick="vote('a')" class="w-full mt-6 bg-blue-700 text-white font-black py-4 comic-border hover:bg-blue-800 text-xl italic uppercase">בחר באומני-מן</button>
                 </div>
@@ -251,10 +249,9 @@
                     <div class="vs-circle">VS</div>
                 </div>
 
-                <!-- באטל ביסט -->
                 <div class="w-full md:w-1/2 flex flex-col">
                     <div class="comic-border bg-zinc-900 p-4 h-[500px] flex items-center justify-center overflow-hidden">
-                        <img src="https://i.postimg.cc/L6q6xScs/Battle-Beast.webp" alt="באטל ביסט" class="full-character-img transition-all hover:scale-110">
+                        <img src="https://i.postimg.cc/L6q6xScs/Battle-Beast.webp" alt="[תמונה של באטל ביסט]" class="full-character-img transition-all hover:scale-110">
                     </div>
                     <button onclick="vote('b')" class="w-full mt-6 bg-gray-900 text-white font-black py-4 comic-border hover:bg-black text-xl italic uppercase">בחר בבאטל ביסט</button>
                 </div>
@@ -282,7 +279,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-right">
                 <div class="bg-yellow-400 comic-border flex flex-col h-full transform hover:-rotate-1 transition-transform">
                     <div class="bg-black h-80 p-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://i.postimg.cc/9F4FL26r/Invincible-29.webp" class="full-character-img" alt="מארק">
+                        <img src="https://i.postimg.cc/9F4FL26r/Invincible-29.webp" class="full-character-img" alt="[תמונה של מארק]">
                     </div>
                     <div class="p-6">
                         <h3 class="text-3xl font-black mb-3 italic">מארק גרייסון</h3>
@@ -293,7 +290,7 @@
 
                 <div class="bg-blue-700 comic-border text-white flex flex-col h-full transform hover:rotate-1 transition-transform">
                     <div class="bg-black h-80 p-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" class="full-character-img" alt="אומני מן">
+                        <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" class="full-character-img" alt="[תמונה של אומני מן]">
                     </div>
                     <div class="p-6">
                         <h3 class="text-3xl font-black mb-3 italic text-yellow-400">אומני-מן</h3>
@@ -304,7 +301,7 @@
 
                 <div class="bg-gray-900 comic-border text-white border-yellow-400 flex flex-col h-full transform hover:-rotate-1 transition-transform">
                     <div class="bg-black h-80 p-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://i.postimg.cc/L6q6xScs/Battle-Beast.webp" class="full-character-img" alt="באטל ביסט">
+                        <img src="https://i.postimg.cc/L6q6xScs/Battle-Beast.webp" class="full-character-img" alt="[תמונה של באטל ביסט]">
                     </div>
                     <div class="p-6">
                         <h3 class="text-3xl font-black mb-3 italic text-red-600">באטל ביסט</h3>
@@ -316,41 +313,11 @@
         </div>
     </section>
 
-    <!-- עונה 3 -->
-    <section class="py-12 bg-red-900 border-y-4 border-yellow-400">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="text-right">
-                <h2 class="text-3xl font-black text-yellow-400 mb-2 italic">עונה 3: מה אנחנו באמת יודעים?</h2>
-                <p class="text-white text-lg font-bold">כל הדיווחים מההפקה, מי הדמויות החדשות שיצטרפו והאם נראה את קונקווסט?</p>
-            </div>
-            <a href="#" class="bg-white text-black px-8 py-3 font-black comic-border hover:bg-yellow-400 transition-all">לכתבה המלאה</a>
-        </div>
-    </section>
-
-    <!-- טיקטוק -->
-    <section id="tiktok" class="py-24 px-4 bg-dark-bg text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-5xl font-black mb-6 text-yellow-400 italic">מה קורה בטיקטוק?</h2>
-            <div class="bg-zinc-800 p-6 md:p-10 border-2 border-yellow-400 flex flex-col items-center shadow-2xl">
-                <h3 class="text-3xl font-bold mb-8 italic uppercase text-yellow-400">"תגדיר מנצח"</h3>
-                <div class="tiktok-wrapper shadow-2xl comic-border">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@dailyeditz2026/video/7631167837012364551" data-video-id="7631167837012364551" style="max-width: 605px;min-width: 325px;" > 
-                        <section> 
-                            <a target="_blank" title="@dailyeditz2026" href="https://www.tiktok.com/@dailyeditz2026?refer=embed">@dailyeditz2026</a> 
-                            תגדיר מנצח #invincible #invinciblevs #fyp #robertkirkman #game 
-                        </section> 
-                    </blockquote> 
-                    <script async src="https://www.tiktok.com/embed.js"></script>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- פוטר -->
     <footer class="bg-black py-16 border-t-8 border-yellow-400 text-center">
         <div class="flex justify-center space-x-reverse space-x-10 mb-8">
-            <a href="https://www.tiktok.com/@dailyeditz2026" target="_blank" class="text-4xl hover:text-yellow-400"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/channel/UCZsfDhrs5yMeY_NUEFqJDQA" target="_blank" class="text-4xl hover:text-red-600"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@dailyeditz2026" target="_blank" rel="noopener noreferrer" class="text-4xl hover:text-yellow-400"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/channel/UCZsfDhrs5yMeY_NUEFqJDQA" target="_blank" rel="noopener noreferrer" class="text-4xl hover:text-red-600"><i class="fab fa-youtube"></i></a>
         </div>
         <p class="text-yellow-400 font-black text-2xl uppercase mb-2">Invincible Israel</p>
         <p class="text-gray-500 font-bold italic">כל הזכויות שמורות למעריצי בלתי מנוצח בישראל &copy; 2026</p>
