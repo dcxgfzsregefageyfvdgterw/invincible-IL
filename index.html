@@ -86,7 +86,7 @@
         .full-character-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* מבטיח שהתמונה תוצג כולה בלי להיחתך */
+            object-fit: contain;
             object-position: center;
         }
 
@@ -134,7 +134,8 @@
             </div>
             <div class="hidden md:flex space-x-reverse space-x-8 font-bold text-lg">
                 <a href="#home" class="nav-link">בית</a>
-                <a href="about.html" class="nav-link text-yellow-400 border-b-2 border-transparent hover:border-yellow-400">פרקים</a>
+                <!-- הקישור המעודכן לכתובת המתוקנת -->
+                <a href="https://dcxgfzsregefageyfvdgterw.github.io/page-2/" class="nav-link text-yellow-400 border-b-2 border-transparent hover:border-yellow-400">פרקים</a>
                 <a href="#game" class="nav-link">המשחק</a>
                 <a href="#characters" class="nav-link">דמויות</a>
                 <a href="#vs" class="nav-link">ראש בראש</a>
@@ -148,8 +149,8 @@
 
     <section id="home" class="hero-gradient pt-40 pb-24 px-4 text-center">
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-6xl md:text-9xl font-black mb-6 uppercase tracking-tighter italic text-white">
-                <span class="text-yellow-400 text-shadow">בלתי</span> מנוצח
+            <h1 class="text-6xl md:text-9xl font-black mb-6 uppercase tracking-tighter italic text-white text-shadow">
+                <span class="text-yellow-400">בלתי</span> מנוצח
             </h1>
             <p class="text-xl md:text-3xl mb-10 font-light max-w-2xl mx-auto text-blue-100">
                 הבית של המעריצים בישראל. ברוכים הבאים לעידן של עונה 5 ומשחק ה-VS החדש!
@@ -229,7 +230,7 @@
         </div>
     </section>
 
-    <!-- אזור ראש בראש - תמונות מלאות -->
+    <!-- אזור ראש בראש -->
     <section id="vs" class="py-24 bg-white text-black relative">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -240,7 +241,7 @@
             <div class="flex flex-col md:flex-row gap-8 items-stretch justify-center mb-12">
                 <!-- אומני מן -->
                 <div class="w-full md:w-1/2 flex flex-col">
-                    <div class="comic-border bg-blue-700 p-4 h-[500px] flex items-center justify-center overflow-hidden bg-zinc-900">
+                    <div class="comic-border bg-zinc-900 p-4 h-[500px] flex items-center justify-center overflow-hidden">
                         <img src="https://i.postimg.cc/CLZLc03R/Omni-Man-Profile.webp" alt="אומני-מן" class="full-character-img transition-all hover:scale-110">
                     </div>
                     <button onclick="vote('a')" class="w-full mt-6 bg-blue-700 text-white font-black py-4 comic-border hover:bg-blue-800 text-xl italic uppercase">בחר באומני-מן</button>
@@ -252,7 +253,7 @@
 
                 <!-- באטל ביסט -->
                 <div class="w-full md:w-1/2 flex flex-col">
-                    <div class="comic-border bg-gray-900 p-4 h-[500px] flex items-center justify-center overflow-hidden bg-zinc-900">
+                    <div class="comic-border bg-zinc-900 p-4 h-[500px] flex items-center justify-center overflow-hidden">
                         <img src="https://i.postimg.cc/L6q6xScs/Battle-Beast.webp" alt="באטל ביסט" class="full-character-img transition-all hover:scale-110">
                     </div>
                     <button onclick="vote('b')" class="w-full mt-6 bg-gray-900 text-white font-black py-4 comic-border hover:bg-black text-xl italic uppercase">בחר בבאטל ביסט</button>
@@ -273,10 +274,10 @@
         </div>
     </section>
 
-    <!-- דמויות מפתח - תמונות מלאות בקלפים -->
+    <!-- דמויות מפתח -->
     <section id="characters" class="py-24 bg-gray-200 text-black">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-5xl font-black mb-16 underline decoration-red-600 decoration-8 underline-offset-8 italic inline-block text-shadow">דמויות מפתח</h2>
+            <h2 class="text-5xl font-black mb-16 underline decoration-red-600 decoration-8 underline-offset-8 italic inline-block">דמויות מפתח</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-right">
                 <div class="bg-yellow-400 comic-border flex flex-col h-full transform hover:-rotate-1 transition-transform">
@@ -315,7 +316,7 @@
         </div>
     </section>
 
-    <!-- עונה 3 - כתבה מעוצבת לפי התמונה -->
+    <!-- עונה 3 -->
     <section class="py-12 bg-red-900 border-y-4 border-yellow-400">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-right">
@@ -369,10 +370,18 @@
             const total = votesA + votesB;
             const pA = Math.round((votesA / total) * 100);
             const pB = 100 - pA;
-            document.getElementById('bar-a').style.width = pA + '%';
-            document.getElementById('bar-b').style.width = pB + '%';
-            document.getElementById('percent-a').innerText = pA + '%';
-            document.getElementById('percent-b').innerText = pB + '%';
+            const barA = document.getElementById('bar-a');
+            const barB = document.getElementById('bar-b');
+            if(barA && barB) {
+                barA.style.width = pA + '%';
+                barB.style.width = pB + '%';
+            }
+            const txtA = document.getElementById('percent-a');
+            const txtB = document.getElementById('percent-b');
+            if(txtA && txtB) {
+                txtA.innerText = pA + '%';
+                txtB.innerText = pB + '%';
+            }
         }
         updateUI();
     </script>
